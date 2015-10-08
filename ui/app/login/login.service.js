@@ -7,7 +7,7 @@
   LoginService.$inject = ['$http', '$modal', '$q', '$rootScope', '$state',
     '$stateParams', 'messageBoardService'];
   function LoginService($http, $modal, $q, $rootScope, $state, $stateParams, messageBoardService) {
-    var _loginMode = 'full'; // 'modal', 'top-right', or 'full'
+    var _loginMode = 'modal'; // 'modal', 'top-right', or 'full'
     var _loginError;
     var _toStateName;
     var _toStateParams;
