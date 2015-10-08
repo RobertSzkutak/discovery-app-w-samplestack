@@ -14,7 +14,6 @@
     'app.root',
     'app.search',
     'app.user',
-    'app.signin',
     'ui.bootstrap',
     'ui.router',
     'ui.tinymce'
