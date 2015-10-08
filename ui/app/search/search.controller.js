@@ -13,6 +13,7 @@
 
   function SearchCtrl($scope, $location, userService, searchFactory) {
     var ctrl = this;
+
     var mlSearch = searchFactory.newContext();
 
     superCtrl.constructor.call(ctrl, $scope, $location, mlSearch);

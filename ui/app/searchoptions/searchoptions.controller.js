@@ -10,31 +10,28 @@
     var ctrl = this;
 
     angular.extend(ctrl, {
-      person: {
-        isActive: true,
-        balance: 0,
-        picture: 'http://placehold.it/32x32',
-        age: 0,
-        eyeColor: null,
+      options: {
         name: null,
-        gender: null,
-        company: null,
-        email: null,
-        phone: null,
-        address: null,
-        about: null,
-        registered: null,
-        latitude: 0,
-        longitude: 0,
-        tags: [],
-        friends: [],
-        greeting: null,
-        favoriteFruit: null
+        options:'<options xmlns="http://marklogic.com/appservices/search">\
+            <return-results>true</return-results>\
+            <return-facets>true</return-facets>\
+            <debug>false</debug>\
+            <!--\
+                <constraint name="sample-facet">\
+                  <range type="xs:string" facet="true">\
+                    <element ns="" name="elementname"/>\
+                    <facet-option>frequency-order</facet-option>\
+                    <facet-option>descending</facet-option>\
+                  </range>\
+                </constraint>\
+            -->\
+           </options>'
       },
       newTag: null,
       currentUser: null,
       editorOptions: {
-        plugins : 'advlist autolink link image lists charmap print preview'
+        plugins : 'advlist autolink link image lists charmap print preview',
+        encoding: 'xml'
       },
       submit: submit,
       addTag: addTag,
