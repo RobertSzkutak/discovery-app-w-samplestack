@@ -32,8 +32,8 @@ module.exports = function() {
     marklogic: {
       version: 8,
       host: 'localhost',
-      httpPort: '8040',
-      xccPort: '8041',
+      httpPort: '8024',
+      xccPort: '8025',
       user: 'admin',
       password: 'admin'
     },
@@ -149,7 +149,7 @@ module.exports = function() {
      * Node settings
      */
     nodeServer: './node-server/node-app.js',
-    defaultPort: '9070'
+    defaultPort: '9071'
   };
 
   /**
