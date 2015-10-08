@@ -8,6 +8,7 @@
     'ml.utils',
     'ngJsonExplorer',
     'app.create',
+    'app.searchoptions',
     'app.detail',
     'app.error',
     'app.login',

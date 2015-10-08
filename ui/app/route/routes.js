@@ -3,7 +3,7 @@
 
   angular.module('app')
     .run(['loginService', function(loginService) {
-      loginService.protectedRoutes(['root.search', 'root.create', 'root.profile']);
+      loginService.protectedRoutes(['root.search', 'root.create', 'root.searchoptions', 'root.profile']);
     }])
     .config(Config);
 
@@ -62,6 +62,17 @@
         url: '/create',
         templateUrl: 'app/create/create.html',
         controller: 'CreateCtrl',
+        controllerAs: 'ctrl',
+        resolve: {
+          stuff: function() {
+            return null;
+          }
+        }
+      })
+      .state('root.searchoptions', {
+        url: '/searchoptions',
+        templateUrl: 'app/searchoptions/searchoptions.html',
+        controller: 'SearchoptionsCtrl',
         controllerAs: 'ctrl',
         resolve: {
           stuff: function() {
