@@ -9,10 +9,7 @@
   function SearchoptionsCtrl($scope, mlRest, $state, userService) {
     var ctrl = this;
 
-    angular.extend(ctrl, {
-      options: {
-        name: null,
-        options:'<options xmlns="http://marklogic.com/appservices/search">\
+    var defaultxml = '<options xmlns="http://marklogic.com/appservices/search">\
             <return-results>true</return-results>\
             <return-facets>true</return-facets>\
             <debug>false</debug>\
@@ -26,6 +23,11 @@
                 </constraint>\
             -->\
            </options>'
+
+    angular.extend(ctrl, {
+      options: {
+        name: null,
+        options: defaultxml
       },
       newTag: null,
       currentUser: null,
@@ -39,11 +41,12 @@
     });
 
     function submit() {
-      mlRest.createDocument(ctrl.person, {
-        format: 'json',
-        directory: '/content/',
-        extension: '.json',
-        collection: ['data', 'data/people']
+      mlRest.createDocument(ctrl.options.options, {
+        format: 'xml',
+        directory: '/options/',
+        //extension: '.xml',
+        filename: $scope.ctrl.options.name + '.xml',
+        collection: ['options']
         // TODO: add read/update permissions here like this:
         // 'perm:sample-role': 'read',
         // 'perm:sample-role': 'update'
