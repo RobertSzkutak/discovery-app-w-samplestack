@@ -31,7 +31,25 @@
 
       </div>
       <ml-metrics search="ctrl.response" ></ml-metrics>
-      <ml-results template="app/search/search-results.html" results="ctrl.response.results"></ml-results>
+      <tabset>
+        <tab select="setSelectedTab('Results')">
+          <tab-heading>Results</tab-heading>
+          <ml-results template="app/search/search-results.html" results="ctrl.response.results"></ml-results>
+        </tab>
+        <tab select="setSelectedTab('Map'); ctrl.showMap();">
+          <tab-heading>Map</tab-heading>
+          <div id="panel">
+            <input type="button" value="Toggle Markers" ng-click="toggleMarkers()">
+            <input type="button" value="Toggle Heatmap" ng-click="toggleHeatmap()">
+            <input type="button" value="Toggle Clusters" ng-click="toggleClusters()">
+          </div>
+          <div id="map-canvas" style="width:1000px;height:700px"></div>
+        </tab>
+        <tab select="setSelectedTab('Chart');">
+          <tab-heading>Chart</tab-heading>
+          Chart View!
+        </tab>
+      </tabset>
     </div>
   </div>
 </div>

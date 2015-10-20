@@ -16,6 +16,7 @@
 
     ctrl.option = 'all.xml';
     ctrl.options = ['all.xml', 'all2.xml']
+    ctrl.initializedGMap = 0;
 
     var mlSearch = searchFactory.newContext();
 
@@ -47,6 +48,27 @@
       ctrl.option = option;
       //mlSearch.setSnippet(type);
       ctrl.search();
+    };
+
+    ctrl.showMap = function() {
+      //Intialize Map
+                        if(ctrl.initializedGMap == 0)
+                        {
+                            console.log("Attempting to render map...")
+                            var latlng = new google.maps.LatLng(33.137551, -98.261719);
+                            var mapOptions = {
+                              zoom: 3,
+                              center: latlng
+                            }
+                            ctrl.map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+                            ctrl.infowindow = new google.maps.InfoWindow(
+                            {
+                                  content: 'loading..'
+                            });
+
+                            ctrl.initializedGMap = 1;
+                        }
     };
 
     //This is an entry point to do initialization
