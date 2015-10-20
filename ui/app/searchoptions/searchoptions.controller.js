@@ -41,7 +41,7 @@
     });
 
     function submit() {
-      mlRest.createDocument(ctrl.options.options, {
+      /*mlRest.createDocument(ctrl.options.options, {
         format: 'xml',
         directory: '/options/',
         //extension: '.xml',
@@ -52,6 +52,20 @@
         // 'perm:sample-role': 'update'
       }).then(function(response) {
         $state.go('root.view', { uri: response.replace(/(.*\?uri=)/, '') });
+      });*/
+
+      mlRest.request('/config/query/' + encodeURI(ctrl.options.name), {
+        method: 'POST',
+        headers: {
+          accept: 'application/xml'
+        },
+        params: {
+          format: 'xml'
+        },
+        data: ctrl.options.options
+      }).then(function(response) {
+        //return response.headers('location');
+        console.log(response);
       });
     }
 
