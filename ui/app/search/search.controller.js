@@ -23,6 +23,11 @@
 
     ctrl.init();
 
+    ctrl.initialize = function()
+    {
+      ctrl.getOptions();
+    }
+
     ctrl.setSnippet = function(type) {
       mlSearch.setSnippet(type);
       ctrl.search();
@@ -34,6 +39,7 @@
           console.log("Options fetched");
           console.log(res);
           ctrl.options = res.data;
+          ctrl.option = ctrl.options[0].name;
         });
     };
 
@@ -43,7 +49,8 @@
       ctrl.search();
     };
 
-    ctrl.getOptions();
+    //This is an entry point to do initialization
+    ctrl.initialize();
 
     $scope.$watch(userService.currentUser, function(newValue) {
       ctrl.currentUser = newValue;
