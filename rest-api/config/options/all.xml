@@ -113,4 +113,14 @@
   </suggestion-source>
   -->
 
+  <!-- Extract Latitude and Longitude for map -->
+  <extract-document-data selected="all">
+  <!--
+    <extract-path xmlns:json="http://marklogic.com/xdmp/json">
+      /json:latitude
+    </extract-path>
+    <extract-path xmlns:json="http://marklogic.com/xdmp/json">/json:longitude</extract-path>
+  -->
+</extract-document-data>
+
 </options>

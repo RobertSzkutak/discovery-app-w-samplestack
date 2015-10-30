@@ -39,13 +39,13 @@
         <tab select="setSelectedTab('Map'); ctrl.showMap();">
           <tab-heading>Map</tab-heading>
           <div id="panel">
-            <input type="button" value="Toggle Markers" ng-click="toggleMarkers()">
-            <input type="button" value="Toggle Heatmap" ng-click="toggleHeatmap()">
-            <input type="button" value="Toggle Clusters" ng-click="toggleClusters()">
+            <input type="button" value="Toggle Markers" ng-click="ctrl.toggleMarkers()">
+            <input type="button" value="Toggle Heatmap" ng-click="ctrl.toggleHeatmap()">
+            <input type="button" value="Toggle Clusters" ng-click="ctrl.toggleClusters()">
           </div>
           <div id="map-canvas" style="width:1000px;height:700px"></div>
         </tab>
-        <tab select="setSelectedTab('Chart');">
+        <tab select="setSelectedTab('Chart'); ctrl.showCharts();">
           <tab-heading>Chart</tab-heading>
           <div id="facetsContainer" class='chart-container'></div>
         </tab>
