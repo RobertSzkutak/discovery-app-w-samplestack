@@ -149,7 +149,7 @@ module.exports = function() {
      * Node settings
      */
     nodeServer: './node-server/node-app.js',
-    defaultPort: '9071'
+    defaultPort: '9072'
   };
 
   /**

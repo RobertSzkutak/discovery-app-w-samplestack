@@ -110,9 +110,13 @@ function proxy(req, res) {
   });
 
   if (req.body !== undefined) {
-    mlReq.write(JSON.stringify(req.body));
-    mlReq.end();
+    if(typeof req.body  == "object")
+      mlReq.write(JSON.stringify(req.body));
+    else
+      mlReq.write(req.body);
   }
+
+  mlReq.end();
 
   mlReq.on('error', function(e) {
     console.log('Problem with request: ' + e.message);

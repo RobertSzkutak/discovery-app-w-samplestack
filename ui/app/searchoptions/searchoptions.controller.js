@@ -57,7 +57,8 @@
       mlRest.request('/config/query/' + encodeURI(ctrl.options.name), {
         method: 'POST',
         headers: {
-          accept: 'application/xml'
+          accept: 'application/xml',
+          'content-type': 'application/xml'
         },
         params: {
           format: 'xml'
