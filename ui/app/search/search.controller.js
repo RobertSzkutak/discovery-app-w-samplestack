@@ -14,7 +14,7 @@
   function SearchCtrl($scope, $location, userService, searchFactory, mlRest) {
     var ctrl = this;
 
-    ctrl.option = 'all.xml';
+    ctrl.option = 'all';
     ctrl.options = []
     ctrl.initializedGMap = 0;
     ctrl.data = null;
@@ -40,6 +40,9 @@
 
     ctrl.doSearch = function(qtext)
     {
+      //console.log(ctrl.mlSearch);
+      ctrl.mlSearch.options.queryOptions = ctrl.option;
+
       ctrl.search(qtext).then(function () {
         ctrl.showMap();
         ctrl.showCharts();
