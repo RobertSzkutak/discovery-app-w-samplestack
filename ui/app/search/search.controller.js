@@ -101,28 +101,31 @@
       //console.log(ctrl.response);
 
       ctrl.response.results.forEach(function(res) {
-        var result = res.extracted.content[0];
-        //console.log(result);
-        if(result.latitude != null && result.latitude != "")
+        if(res.extracted)
         {
-          var location = new google.maps.LatLng(parseFloat(result.latitude), parseFloat(result.longitude));
-          var description = result.about;
-
-          var marker = new google.maps.Marker({
-            position: location,
-            map: ctrl.map,
-            html: description
-          });
-
-          google.maps.event.addListener(marker, 'click', function ()
+          var result = res.extracted.content[0];
+          //console.log(result);
+          if(result.latitude != null && result.latitude != "")
           {
-            ctrl.infowindow.setContent(this.html);
-            ctrl.infowindow.open(ctrl.map, this);
-          });
+            var location = new google.maps.LatLng(parseFloat(result.latitude), parseFloat(result.longitude));
+            var description = result.about;
 
-          ctrl.markers.push(marker);
+            var marker = new google.maps.Marker({
+              position: location,
+              map: ctrl.map,
+              html: description
+            });
 
-          ctrl.heatData.push(new google.maps.LatLng(parseFloat(result.latitude), parseFloat(result.longitude)));
+            google.maps.event.addListener(marker, 'click', function ()
+            {
+              ctrl.infowindow.setContent(this.html);
+              ctrl.infowindow.open(ctrl.map, this);
+            });
+
+            ctrl.markers.push(marker);
+
+            ctrl.heatData.push(new google.maps.LatLng(parseFloat(result.latitude), parseFloat(result.longitude)));
+          }
         }
       });
     };
