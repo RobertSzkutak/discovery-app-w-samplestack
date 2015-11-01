@@ -40,13 +40,10 @@
 
     ctrl.doSearch = function(qtext)
     {
-      var mlSearch = searchFactory.newContext({queryOption: ctrl.option});
-
-      ctrl.search({qtext: qtext}).then(
-        function(res) {
-          console.log("Search Results:");
-          console.log(res);
-        });
+      ctrl.search(qtext).then(function () {
+        ctrl.showMap();
+        ctrl.showCharts();
+      });
     }
 
     ctrl.setSnippet = function(type) {
