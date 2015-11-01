@@ -15,7 +15,7 @@
     var ctrl = this;
 
     ctrl.option = 'all.xml';
-    ctrl.options = ['all.xml', 'all2.xml']
+    ctrl.options = []
     ctrl.initializedGMap = 0;
     ctrl.data = null;
     ctrl.markers = [];
@@ -62,9 +62,7 @@
     };
 
     ctrl.setOptions = function(option) {
-      ctrl.option = option;
-      //mlSearch.setSnippet(type);
-      ctrl.search();
+      ctrl.option = option.name;
     };
 
     ctrl.showMap = function() {
